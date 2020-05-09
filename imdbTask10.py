@@ -25,7 +25,7 @@ def analyse_language_and_directors (movie_Directors):
                 dic1[lang]=1
             else:
                 dic1[lang]+=1
-        dic[i]=dic1
+        dic[i]=dic1 
     return(dic)
 print(analyse_language_and_directors(directors))
 
