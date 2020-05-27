@@ -31,7 +31,7 @@ def analyse_movies_language(sorted):
         countLanguages[sorted[i]]=(count)
         i=i+1
     return(countLanguages)
-# pprint(analyse_movies_language(sort))
+pprint(analyse_movies_language(sort))
 
     
     

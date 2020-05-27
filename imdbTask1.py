@@ -29,7 +29,7 @@ def scrape_top_list(trs):
 		ratings=movie.find("td",class_="ratingColumn imdbRating").strong.get_text()
 		Urls=movie.find("a")["href"]
 		movie_urls="https://www.imdb.com/"+Urls
-		# print(url)
+		# print(movie_urls)
 		movie_details["position"]=position
 		movie_details["name"]=name
 		movie_details["year"]=int(year[1:5])
@@ -39,7 +39,8 @@ def scrape_top_list(trs):
 		movies_list.append(movie_details)
 	return (movies_list)
 moviesInfo=(scrape_top_list(tr_data))
-# pprint(moviesInfo)
+# print(moviesInfo)
+
 
 
 

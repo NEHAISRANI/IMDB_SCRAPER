@@ -25,7 +25,6 @@ def extract_language_country_from_imdb(imdb_data):
         print("------------")
     dictionary["language"]=language
     dictionary["country"]=country
-
     
 def extract_director_bio_from_imdb(imdb):
     bio_and_director=imdb.find("div",class_="plot_summary")
@@ -36,9 +35,7 @@ def extract_director_bio_from_imdb(imdb):
     for i in director.find_all("a"): 
         Directors_name.append(i.get_text())
     dictionary["bio"]=Bio
-    dictionary["Directors"]=Directors_name
-
-
+    dictionary["Directors"]=Directors_name 
 def extract_name_time(imdb):
     nameAndtime=imdb.find("div",class_="title_wrapper")
     movie_name=nameAndtime.h1.get_text()
@@ -58,7 +55,6 @@ def extract_name_time(imdb):
         i=i+1
     dictionary["name"]=name.strip("\xa0")
     dictionary["runtime"]=time_in_min
-
 def extract_poster_genre_info(imdb):
     Poster_image_url=imdb.find("div",class_="poster")
     image_url=(Poster_image_url.img["src"])
@@ -71,7 +67,7 @@ def extract_poster_genre_info(imdb):
             genre_list=[]
             for j in a_tag:
                 genre_list.append(j.get_text())
-    dictionary["poster_img_url"]=image_url
+    dictionary["poster_img_url"]=image_url 
     dictionary["genre"]=genre_list
 
 
@@ -82,7 +78,7 @@ def Scrap_Movie_Details(movie_url):
     NameTime=extract_name_time(soup) 
     poster_genre=extract_poster_genre_info(soup)
     return(dictionary)  
-# url="https://www.imdb.com/title/tt10324144/"
-# particular_movie_details=(Scrap_Movie_Details(url))
-# pprint(particular_movie_details)
+url="https://www.imdb.com/title/tt1438298/"
+particular_movie_details=(Scrap_Movie_Details(url))
+pprint(particular_movie_details)
 

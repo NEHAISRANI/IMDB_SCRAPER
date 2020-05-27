@@ -6,10 +6,9 @@ from imdbTask1 import *
 import os 
 
 def scrape_movie_cast():
-    for i in moviesInfo[:10]:
+    for i in moviesInfo[:11]:
         movieUrl=i["url"].split("/")
         Url=(movieUrl[5])
-        print(Url)
         fileName1=("moviesCast/"+str(movieUrl[5])+"_cast.json")
         if os.path.exists(fileName1): 
             print("-----------------")
@@ -18,13 +17,13 @@ def scrape_movie_cast():
             print(readFile) 
         else:
             url="https://www.imdb.com/title/"+str(Url)+"/fullcredits?ref_=tt_cl_sm"
-            res=requests.get(url)
+            res=requests.get(url) 
             soup=BeautifulSoup(res.text,"html.parser")
             tbody=soup.find("table",class_="cast_list")
             td=tbody.find_all("td",class_="") 
-            castList=[] 
-            castDic={}
-            for i in td: 
+            castList=[]  
+            castDic={}  
+            for i in td:  
                 aTag=i.a
                 Tag=aTag["href"].split("/")
                 hrefTag=Tag[2]
